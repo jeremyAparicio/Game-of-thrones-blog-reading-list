@@ -1,0 +1,20 @@
+.navbar-style{
+    justify-content: space-between;
+    background-color: #96a1d8 !important;
+}
+
+.link-home{
+    margin-left: 10px;
+}
+
+.dropdown-style{
+    margin-right: 10px;
+}
+
+.dropdown-menu[data-bs-popper] {
+    left: -85%;
+}    
+
+a{
+    text-decoration: none;
+}

@@ -1,0 +1,12 @@
+.home{
+    justify-content: space-around !important;
+}
+
+.row{
+    justify-content: space-between;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 2%;
+}

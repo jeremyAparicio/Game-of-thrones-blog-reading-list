@@ -1,6 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			continentes:[],
+			personajes:[],
+			favoritos:[],
 			demo: [
 				{
 					title: "FIRST",
@@ -12,17 +15,44 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			titulo:"Game Of Thrones"
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
+			addFav:(nombre)=>{
+				const store = getStore()
+				console.log("Elemento agregado", nombre)
+				setStore({favoritos:[...store.favoritos, nombre]})
+			},
+			deleteFav: id => {
+				const store = getStore();
+				const newFav = store.favoritos.filter((item, i) => i !== id);
+				setStore({ favoritos: newFav });
+			},
+			getPersonajes: ()=>{
+				var requestOptions = {
+					method: 'GET',
+					redirect: 'follow'
+				  };
+				  
+				  fetch("https://thronesapi.com/api/v2/Characters", requestOptions)
+					.then(response => response.json())
+					.then(data => setStore({personajes: data}))
+				},
+			getContinentes:()=>{
+				var requestOptions = {
+					method: 'GET',
+					redirect: 'follow'
+				  };
+				  
+				  fetch("https://thronesapi.com/api/v2/Continents", requestOptions)
+					.then(response => response.json())
+					.then(data => setStore({continentes: data}))
+			},
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
 			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
 			},
 			changeColor: (index, color) => {
 				//get the store
@@ -37,7 +67,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+			
+
+
 		}
 	};
 };

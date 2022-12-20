@@ -1,0 +1,29 @@
+img{
+    border-radius: 150px;
+}
+
+.img-style{
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+.details{
+    margin-top: 20%
+}
+
+.p-style{
+    font-size: 25px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.info-perso{
+    margin-bottom: 2%;
+    margin-top: -8%;
+    margin-left: -44%;
+}
+
+.table-style{
+    margin-left: 20%;
+    margin-top: 15%;
+}
